@@ -1,0 +1,22 @@
+# Ignore Python files for Vercel deployment
+# (Only deploy static HTML landing page)
+
+*.py
+*.pyc
+__pycache__/
+.venv/
+venv/
+*.egg-info/
+
+# Ignore Python dependencies
+requirements.txt
+requirements-vercel.txt
+setup.py
+
+# Ignore Streamlit files
+faosim/
+.streamlit/
+tests/
+
+# Keep only static files
+!public/
