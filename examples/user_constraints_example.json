@@ -1,0 +1,23 @@
+{
+  "product_cost": 100.0,
+  "selling_price": 300.0,
+  "historical_data": {
+    "cpm": 15.0,
+    "ctr": 0.02,
+    "cpc": 0.75,
+    "cr": 0.03,
+    "daily_budget": 100.0,
+    "impressions": 10000,
+    "clicks": 200,
+    "conversions": 6
+  },
+  "goal": {
+    "metric": "ROAS",
+    "target_value": 2.5,
+    "tolerance": 0.1
+  },
+  "max_loops": 10,
+  "population_size": 20,
+  "min_daily_budget": 50.0,
+  "max_daily_budget": 500.0
+}

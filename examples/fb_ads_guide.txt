@@ -1,0 +1,207 @@
+Facebook Ads Optimization Best Practices Guide
+
+1. AUDIENCE TARGETING STRATEGIES
+
+1.1 Age-Based Targeting
+- Young Adults (18-34): High engagement with mobile, social features
+- Middle Age (35-54): Higher purchasing power, responds to value propositions
+- Seniors (55+): Growing market, responds to trust and reliability
+
+1.2 Gender Targeting
+- Use "All" for broad reach
+- Use specific gender targeting when product is gender-specific
+- Test both approaches to find optimal performance
+
+1.3 Geographic Targeting
+- Start with tier-1 markets: US, CA, GB, AU
+- Expand to tier-2 after proving profitability
+- Consider local languages and cultural context
+
+1.4 Interest-Based Targeting
+- Use Facebook's interest categories
+- Layer multiple interests for precision
+- Test broad vs. narrow targeting
+- Common high-performing interests: Shopping, Technology, Lifestyle
+
+1.5 Lookalike Audiences
+- Create from customer lists (minimum 100 people)
+- Use 1-3% similarity for precision
+- Use 5-10% for broader reach
+- Test multiple lookalike audiences
+
+2. AD CREATIVE FORMATS
+
+2.1 Single Image Ads
+- Best for: Simple products, brand awareness
+- Image specs: 1200x628px minimum
+- Use high-quality, eye-catching images
+- Clear value proposition in image
+
+2.2 Carousel Ads
+- Best for: Multiple products, features showcase
+- 2-10 cards per carousel
+- Each card can have unique destination
+- Show progression or comparison
+
+2.3 Video Ads
+- Best for: Demonstrations, storytelling
+- First 3 seconds crucial for retention
+- Use captions (85% watch without sound)
+- Keep under 30 seconds for optimal engagement
+
+2.4 Collection Ads
+- Best for: E-commerce, multiple SKUs
+- Mobile-optimized shopping experience
+- Higher engagement rates
+- Seamless checkout integration
+
+3. BIDDING STRATEGIES
+
+3.1 Lowest Cost Without Cap
+- Best for: New campaigns, testing phase
+- Facebook optimizes for lowest cost per result
+- No manual bid control
+- Good starting strategy
+
+3.2 Lowest Cost With Bid Cap
+- Set maximum bid per result
+- More control over costs
+- May limit delivery if bid too low
+- Use when you know target CPA
+
+3.3 Cost Cap
+- Target specific cost per result
+- Facebook optimizes within cost constraint
+- Better than bid cap for scaling
+- Recommended for established campaigns
+
+3.4 Lowest Cost With Min ROAS
+- Target minimum return on ad spend
+- Good for e-commerce with known margins
+- Requires purchase tracking
+- Best for profit optimization
+
+4. OPTIMIZATION GOALS
+
+4.1 Conversions
+- Best for: E-commerce, lead generation
+- Requires Facebook Pixel setup
+- Optimize for purchase, lead, or custom event
+- Highest intent targeting
+
+4.2 Link Clicks
+- Best for: Traffic generation
+- Lower cost per click than conversions
+- Less qualified traffic
+- Good for content marketing
+
+4.3 Landing Page Views
+- Better than link clicks for quality
+- Ensures page actually loads
+- Filters out accidental clicks
+- Good middle ground
+
+4.4 Impressions/Reach
+- Best for: Brand awareness
+- Maximum delivery
+- Lowest cost per impression
+- Use for remarketing
+
+5. PLACEMENT STRATEGIES
+
+5.1 Automatic Placements
+- Facebook optimizes across all placements
+- Usually delivers best results
+- Lower CPM overall
+- Good starting point
+
+5.2 Manual Placement Selection
+
+Feed Placements:
+- Facebook Feed: Highest engagement
+- Instagram Feed: Visual products, younger audience
+- Combined: Best overall performance
+
+Story Placements:
+- Facebook Stories: Full-screen immersive
+- Instagram Stories: High engagement, 18-34 demo
+- Vertical format required
+
+Messenger:
+- Lower CPM
+- Good for remarketing
+- Sponsored messages for warm audiences
+
+Audience Network:
+- Extends reach off Facebook
+- Lower CPM
+- Test separately before including
+
+6. BUDGET RECOMMENDATIONS
+
+6.1 Daily Budget Guidelines
+- Minimum: $10/day per ad set
+- Testing phase: $50-100/day
+- Scaling phase: 20% increases every 3 days
+- Never double budget in one day
+
+6.2 Budget Allocation
+- 70% to proven winners
+- 20% to scaling tests
+- 10% to new creative/audience tests
+
+7. CAMPAIGN STRUCTURE
+
+7.1 Campaign Organization
+- One objective per campaign
+- Multiple ad sets for different audiences
+- 2-5 ads per ad set
+- Test variables systematically
+
+7.2 Testing Methodology
+- Test one variable at a time
+- Run tests for minimum 3-7 days
+- Minimum 50 conversions for significance
+- Document all results
+
+8. CREATIVE BEST PRACTICES
+
+8.1 Headlines
+- 5-10 words ideal length
+- Include benefit or offer
+- Create urgency when appropriate
+- Test multiple variations
+
+8.2 Primary Text
+- First 125 characters visible before "See More"
+- Lead with benefit
+- Include social proof
+- Clear call to action
+
+8.3 Call-to-Action Buttons
+- Shop Now: E-commerce default
+- Learn More: Informational content
+- Sign Up: Lead generation
+- Download: Apps, resources
+
+9. PERFORMANCE BENCHMARKS
+
+Average Metrics by Industry (E-commerce):
+- CTR: 1-2% (good), 2%+ (excellent)
+- CPC: $0.50-$2.00
+- CPM: $10-$30
+- Conversion Rate: 2-5%
+- ROAS: 2.0-4.0 (good), 4.0+ (excellent)
+
+10. OPTIMIZATION TIPS
+
+- Let campaigns run 3-7 days before judging
+- Make incremental changes, not sweeping changes
+- Keep winning campaigns running
+- Refresh creative every 2-4 weeks to avoid fatigue
+- Use campaign budget optimization (CBO) for scaling
+- Monitor frequency (keep under 3.0)
+- Test different times of day/week
+- Use retargeting for abandoned carts
+- Implement exclusions to prevent overlap
+- Track full-funnel metrics, not just ROAS
