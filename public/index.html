@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAO-Sim - FB Ads Optimizer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .card {
+            background: white;
+            border-radius: 1rem;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
+        }
+
+        .deployment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .option-card {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .option-card.recommended {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+        }
+
+        .option-card h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #667eea;
+            color: white;
+            border-radius: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge.free {
+            background: #10b981;
+        }
+
+        .option-card p {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .option-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option-card li {
+            padding: 0.5rem 0;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .option-card li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+
+        .warning {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .warning h4 {
+            color: #92400e;
+            margin-bottom: 0.5rem;
+        }
+
+        .warning p {
+            color: #78350f;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            margin-top: 3rem;
+            opacity: 0.8;
+        }
+
+        .instructions {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .instructions h4 {
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .instructions ol {
+            padding-left: 1.5rem;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🎯 FAO-Sim</h1>
+            <p>FB Ads Autonomous Optimization & Simulation Lab</p>
+        </div>
+
+        <div class="card">
+            <div class="warning">
+                <h4>⚠️ Important: Deployment Platform Notice</h4>
+                <p><strong>Streamlit applications cannot run on Vercel!</strong> Vercel is designed for static sites and serverless functions, not long-running Python servers. Please choose one of the deployment options below.</p>
+            </div>
+
+            <h2 style="color: #1e293b; margin-bottom: 1.5rem;">Choose Your Deployment Platform</h2>
+
+            <div class="deployment-options">
+                <!-- Streamlit Cloud -->
+                <div class="option-card recommended">
+                    <h3>
+                        <span>Streamlit Cloud</span>
+                        <span class="badge free">FREE</span>
+                        <span class="badge">RECOMMENDED</span>
+                    </h3>
+                    <p>The easiest and best way to deploy Streamlit apps. Free for public repositories with full functionality.</p>
+                    <ul>
+                        <li>Zero configuration needed</li>
+                        <li>Automatic HTTPS</li>
+                        <li>GitHub integration</li>
+                        <li>Free forever for public repos</li>
+                    </ul>
+                    <a href="https://share.streamlit.io" class="btn" target="_blank">Deploy to Streamlit Cloud</a>
+                </div>
+
+                <!-- Railway -->
+                <div class="option-card">
+                    <h3>
+                        <span>Railway</span>
+                        <span class="badge free">$5 CREDIT</span>
+                    </h3>
+                    <p>Modern platform with excellent developer experience. Auto-deploys from GitHub.</p>
+                    <ul>
+                        <li>$5 free credit monthly</li>
+                        <li>Auto-detect Streamlit</li>
+                        <li>Simple pricing</li>
+                        <li>Great for hobby projects</li>
+                    </ul>
+                    <a href="https://railway.app" class="btn" target="_blank">Try Railway</a>
+                </div>
+
+                <!-- Render -->
+                <div class="option-card">
+                    <h3>
+                        <span>Render</span>
+                        <span class="badge free">FREE TIER</span>
+                    </h3>
+                    <p>Simple cloud platform with a generous free tier. Perfect for personal projects.</p>
+                    <ul>
+                        <li>750 hours/month free</li>
+                        <li>Easy setup</li>
+                        <li>Auto-deploy from Git</li>
+                        <li>Built-in SSL</li>
+                    </ul>
+                    <a href="https://render.com" class="btn" target="_blank">Try Render</a>
+                </div>
+            </div>
+
+            <div class="instructions">
+                <h4>📝 Quick Start: Streamlit Cloud (Recommended)</h4>
+                <ol>
+                    <li>Push your code to GitHub (if not already done)</li>
+                    <li>Go to <a href="https://share.streamlit.io" target="_blank">share.streamlit.io</a></li>
+                    <li>Sign in with GitHub</li>
+                    <li>Click "New app" and select your repository</li>
+                    <li>Set main file path to: <code>faosim/ui/app.py</code></li>
+                    <li>Add your API keys in Settings → Secrets</li>
+                    <li>Click "Deploy!" - Done! ✅</li>
+                </ol>
+            </div>
+
+            <div class="code-block">
+                <code># Example Streamlit Cloud secrets.toml
+[openai]
+api_key = "sk-..."
+
+[anthropic]
+api_key = "sk-ant-..."</code>
+            </div>
+
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 2px solid #e2e8f0;">
+                <h3 style="color: #1e293b; margin-bottom: 1rem;">📚 Need More Help?</h3>
+                <p style="color: #475569; margin-bottom: 1rem;">Check out our comprehensive deployment documentation:</p>
+                <a href="https://github.com/Bosuaclub/LAPS/blob/main/DEPLOYMENT.md" class="btn secondary" target="_blank">View Full Deployment Guide</a>
+                <a href="https://github.com/Bosuaclub/LAPS" class="btn secondary" target="_blank" style="margin-left: 1rem;">GitHub Repository</a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>FAO-Sim v1.0.0 | Built with ❤️ using Python & Streamlit</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">
+                <a href="https://github.com/Bosuaclub/LAPS" style="color: white; text-decoration: underline;">GitHub</a> •
+                <a href="https://github.com/Bosuaclub/LAPS/blob/main/DEPLOYMENT.md" style="color: white; text-decoration: underline;">Documentation</a> •
+                <a href="https://github.com/Bosuaclub/LAPS/issues" style="color: white; text-decoration: underline;">Support</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

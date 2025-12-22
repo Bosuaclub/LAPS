@@ -1,0 +1,10 @@
+# System-level dependencies for Streamlit Cloud
+# These packages will be installed via apt-get
+
+# For PDF processing
+poppler-utils
+
+# For image processing
+libsm6
+libxext6
+libxrender-dev
