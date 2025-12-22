@@ -91,7 +91,30 @@ pip install -e .
 
 ## 🚀 Quick Start
 
-### Option 1: Command Line Interface
+### Option 1: Web UI (Recommended)
+
+Launch the interactive web dashboard:
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch Web UI
+python run_ui.py
+```
+
+The dashboard will open automatically at `http://localhost:8501`
+
+**Features**:
+- 🎨 Beautiful interactive interface
+- 📊 Real-time visualization
+- 📈 Performance analytics
+- 💾 Easy export (JSON/CSV)
+- 📱 Responsive design
+
+See [Web UI Guide](docs/WEB_UI_GUIDE.md) for detailed instructions.
+
+### Option 2: Command Line Interface
 
 ```bash
 # Run optimization with example config
@@ -102,7 +125,7 @@ python -m faosim.cli \
   --export-format both
 ```
 
-### Option 2: Python Script
+### Option 3: Python Script
 
 ```python
 from faosim.core.schemas import UserConstraints, HistoricalData, Goal
@@ -136,11 +159,25 @@ print(f"Best ROAS: {result.best_roas:.2f}")
 print(f"Winning Campaigns: {len(result.winning_campaigns)}")
 ```
 
-### Option 3: Quick Start Script
+### Option 4: Quick Start Script
 
 ```bash
 python examples/quick_start.py
 ```
+
+## 🎨 Web UI Screenshots
+
+### Dashboard Overview
+- **Configuration Tab**: Form-based input or JSON upload
+- **Optimization Tab**: Real-time progress tracking
+- **Results Tab**: Performance metrics and winning campaigns
+- **Analytics Tab**: Convergence charts and comparisons
+
+### Key Features
+- Interactive charts with Plotly
+- Download results in multiple formats
+- Real-time optimization progress
+- Comprehensive performance analytics
 
 ## 📋 Configuration
 
