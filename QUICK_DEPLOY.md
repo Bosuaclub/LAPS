@@ -32,14 +32,13 @@ Click **"Advanced settings"** → **"Secrets"**
 
 Paste vào:
 ```toml
-[openai]
-api_key = "sk-proj-..."
+GOOGLE_API_KEY = "AIza..."
 
 [anthropic]
 api_key = "sk-ant-..."
 ```
 
-Thay `sk-proj-...` bằng API key thật của bạn.
+Thay `AIza...` bằng Google API key thật của bạn.
 
 ### 1.6. Deploy
 Click **"Deploy!"**
@@ -53,13 +52,13 @@ https://[tên-app-của-bạn].streamlit.app
 
 ---
 
-## 📱 Bước 2: Lấy OpenAI API Key
+## 📱 Bước 2: Lấy Google Gemini API Key
 
 Nếu chưa có API key:
 
-1. Vào: **https://platform.openai.com/api-keys**
-2. Click **"Create new secret key"**
-3. Copy key (bắt đầu với `sk-proj-...`)
+1. Vào: **https://makersuite.google.com/app/apikey**
+2. Click **"Create API key"**
+3. Copy key (bắt đầu với `AIza...`)
 4. Paste vào Streamlit secrets (bước 1.5 ở trên)
 
 ---
@@ -116,10 +115,11 @@ Vercel **KHÔNG thể chạy Streamlit apps** vì:
 ### Lỗi: "Authentication Error"
 **Fix**: Kiểm tra API key format trong secrets:
 ```toml
-[openai]
-api_key = "sk-proj-..."  # ✅ Đúng
+GOOGLE_API_KEY = "AIza..."  # ✅ Đúng
 
-openai_api_key = "..."    # ❌ Sai
+google_api_key = "..."      # ❌ Sai (lowercase)
+[google]                    # ❌ Sai (không dùng section)
+api_key = "..."
 ```
 
 ### App chậm hoặc crash
@@ -145,7 +145,7 @@ Deploy thành công khi:
 - [ ] Đã connect GitHub account
 - [ ] Chọn đúng repo: Bosuaclub/LAPS
 - [ ] Main file: faosim/ui/app.py
-- [ ] Đã thêm OpenAI API key
+- [ ] Đã thêm Google Gemini API key
 - [ ] Click Deploy thành công
 - [ ] App hiển thị không lỗi
 
@@ -169,7 +169,7 @@ Sau khi deploy xong, bạn sẽ có:
 ```bash
 # 1. Vào: https://share.streamlit.io
 # 2. New app → Bosuaclub/LAPS → faosim/ui/app.py
-# 3. Add OpenAI API key trong Secrets
+# 3. Add Google Gemini API key trong Secrets
 # 4. Deploy!
 #
 # ✅ 5 phút = App thật chạy được

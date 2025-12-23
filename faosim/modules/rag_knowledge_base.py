@@ -10,16 +10,16 @@ from typing import List, Dict, Any, Optional
 from pathlib import Path
 
 from loguru import logger
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.document_loaders import (
     PyPDFLoader,
     TextLoader,
     UnstructuredWordDocumentLoader,
 )
-from langchain_community.embeddings import OpenAIEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
-from langchain_community.llms import OpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.prompts import PromptTemplate
 
 from faosim.core.schemas import ParameterSpace, KnowledgeBaseDocument
@@ -36,7 +36,7 @@ class RAGKnowledgeBase:
     def __init__(
         self,
         persist_directory: str = "./data/chroma_db",
-        embedding_model: str = "text-embedding-ada-002",
+        embedding_model: str = "models/embedding-001",
         collection_name: str = "fb_ads_knowledge",
     ):
         """
@@ -44,7 +44,7 @@ class RAGKnowledgeBase:
 
         Args:
             persist_directory: Directory to persist ChromaDB
-            embedding_model: OpenAI embedding model name
+            embedding_model: Google Gemini embedding model name
             collection_name: ChromaDB collection name
         """
         self.persist_directory = persist_directory
@@ -53,8 +53,8 @@ class RAGKnowledgeBase:
 
         logger.info(f"Initializing RAG Knowledge Base at {persist_directory}")
 
-        # Initialize embeddings
-        self.embeddings = OpenAIEmbeddings(model=embedding_model)
+        # Initialize Google Gemini embeddings
+        self.embeddings = GoogleGenerativeAIEmbeddings(model=embedding_model)
 
         # Initialize or load ChromaDB
         self.vectorstore = None
@@ -135,11 +135,20 @@ class RAGKnowledgeBase:
         # Create or update vector store
         if os.path.exists(self.persist_directory) and os.listdir(self.persist_directory):
             logger.info("Loading existing vector store...")
-            self.vectorstore = Chroma(
-                persist_directory=self.persist_directory,
-                embedding_function=self.embeddings,
-                collection_name=self.collection_name,
-            )
+            try:
+                self.vectorstore = Chroma(
+                    persist_directory=self.persist_directory,
+                    embedding_function=self.embeddings,
+                    collection_name=self.collection_name,
+                )
+            except Exception as e:
+                logger.warning(f"Could not load existing vector store: {e}. Creating new one...")
+                self.vectorstore = Chroma.from_documents(
+                    documents=splits if 'splits' in locals() else [],
+                    embedding=self.embeddings,
+                    persist_directory=self.persist_directory,
+                    collection_name=self.collection_name,
+                )
         else:
             logger.info("Creating new vector store...")
             self.vectorstore = Chroma.from_documents(
@@ -177,9 +186,9 @@ Answer in a structured format that can be parsed as JSON when requested."""
             input_variables=["context", "question"],
         )
 
-        # Create QA chain
+        # Create QA chain with Gemini
         self.qa_chain = RetrievalQA.from_chain_type(
-            llm=OpenAI(temperature=0),
+            llm=ChatGoogleGenerativeAI(model="gemini-1.5-flash", temperature=0),
             chain_type="stuff",
             retriever=self.retriever,
             chain_type_kwargs={"prompt": prompt},
