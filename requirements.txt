@@ -44,3 +44,6 @@ mkdocs-material>=9.5.0
 streamlit>=1.30.0
 plotly>=5.18.0
 watchdog>=3.0.0  # For Streamlit file watching
+
+# Install local package in editable mode
+-e .
