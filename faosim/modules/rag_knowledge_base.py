@@ -18,9 +18,9 @@ from langchain_community.document_loaders import (
 )
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.vectorstores import Chroma
-from langchain.chains import RetrievalQA
+from langchain.chains.retrieval_qa.base import RetrievalQA
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate
 
 from faosim.core.schemas import ParameterSpace, KnowledgeBaseDocument
 
